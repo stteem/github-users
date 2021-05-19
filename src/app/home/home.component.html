@@ -1,1 +1,105 @@
-<p>home works!</p>
+<nz-layout>
+    <nz-header class="toolbar">
+        
+            <i nz-icon nzType="github" id="github-icon" nzTheme="outline"></i>
+            
+            <nz-input-group  class="search-input" [nzSuffix]="suffixIconSearch">
+                <input class="search-input" placeholder="Search or jump to..." nz-input [(ngModel)]="inputValue" (ngModelChange)="onChange($event)" [nzAutocomplete]="auto" />
+                <nz-autocomplete [nzDataSource]="filteredOptions" #auto></nz-autocomplete>
+            </nz-input-group >
+            <ng-template #suffixIconSearch>
+                <i nz-icon style="color: #ffffffb3;" nzType="search"></i>
+            </ng-template>
+
+            <ul id="menu" nz-menu nzMode="horizontal">
+                <li nz-menu-item>Pull requests</li>
+                <li nz-menu-item>Issues</li>
+                <li nz-menu-item>Marketplace</li>
+                <li nz-menu-item>Explore</li>
+            </ul>
+        
+            
+            
+            <span class="example-spacer"></span>
+            <div id="far-right">
+                <a><i nz-icon id="bell" nzType="bell" nzTheme="outline"></i> </a>
+
+                <i nz-icon nzType="plus" nzTheme="outline"></i>
+                <a class="plus" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+                    <i nz-icon nzType="caret-down" nzTheme="outline"></i>
+                </a>
+
+                <nz-avatar nzSize="small" nzIcon="user"></nz-avatar>
+                <a nz-dropdown class="plus" nzTrigger="click" [nzDropdownMenu]="menu">
+                    <i nz-icon nzType="caret-down" nzTheme="outline"></i>
+                </a>
+                <nz-dropdown-menu #menu="nzDropdownMenu">
+                <ul style="color: #ffffffb3;" nz-menu>
+                    <li nz-menu-item>Signed in as <strong>user</strong></li>
+                    <hr style="color: ffffffb3;">
+                    <li nz-menu-item>Your profile</li>
+                    <li nz-menu-item>Your Repositories</li>
+                    <li nz-menu-item>Your codespaces</li>
+                    <li nz-menu-item>Your organizations</li>
+                    <li nz-menu-item>Your projects</li>
+                    <li nz-menu-item>Your stars</li>
+                    <li nz-menu-item>Your gists</li>
+                    <hr style="color: ffffffb3;">
+                    <li nz-menu-item>Upgrade</li>
+                    <li nz-menu-item>Feature</li>
+                    <li nz-menu-item>Help</li>
+                    <li nz-menu-item>Settings</li>
+                    <hr style="color: ffffffb3;">
+                    <li nz-menu-item>Sign out</li>
+                </ul>
+                </nz-dropdown-menu>
+            </div>
+    </nz-header>
+
+    <nz-layout>
+        <nz-content class="container">
+                <h2 style="margin-top: 100px;">Find Github UsersS</h2>
+
+                <table class="table table-striped tabl" *ngIf="collection.length > 0">
+                    <thead>
+                        <tr>
+                            <td><strong>Profile Picture</strong></td>
+                            <td><strong>Name</strong></td>
+                            <td><strong>Profile Page</strong></td>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let item of collection | paginate: config">
+                        <tr>
+                            <td><img src="{{item.avatar_url}}" class="profile-img" alt="{{item.login}}'s profile image" /></td>
+                            <td>{{item.login}}</td>
+                            <td><a href="{{item.html_url}}">{{item.html_url}}</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <nz-spin [hidden]="spin || searchErrMess || collection.length > 0" nzSimple [nzSize]="'large'"></nz-spin>
+                <div *ngIf="searchErrMess">
+                    <h4>{{searchErrMess}}</h4>
+                </div>
+                
+                <div class="page-ctrl" *ngIf="collection.length > 0">
+                    <pagination-controls
+                        id="users" 
+                        (pageChange)="pageChanged($event)"
+                        [maxSize]="maxSize"
+                        [directionLinks]="directionLinks"
+                        [autoHide]="autoHide"
+                        [responsive]="responsive"
+                        [previousLabel]="labels.previousLabel"
+                        [nextLabel]="labels.nextLabel"
+                        [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+                        [screenReaderPageLabel]="labels.screenReaderPageLabel"
+                        [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+                    >
+                    </pagination-controls>
+                    <p class="count" *ngIf="count > 1"><strong>{{count}}</strong> results</p>
+                    <p class="count" *ngIf="count <= 1"><strong>{{count}}</strong> result</p>
+                </div>            
+        </nz-content>
+    </nz-layout>
+</nz-layout>

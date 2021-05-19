@@ -1,0 +1,136 @@
+.toolbar {
+    display: flex;
+    align-items: center;
+    /*width: auto;*/
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #ffffffb3;
+    background-color: #24292e;
+}
+
+.container {
+    display:flex;
+    flex-flow:column;
+    align-items: center;
+    //margin: 30px;
+    width: 100%;
+    min-height: 800px;
+    //background-color: turquoise;
+}
+
+#github-icon {
+    margin-left: 15px;
+    font-size: 33px; 
+    color: #fff;
+}
+
+#menu {
+    background: transparent;
+    color: #ffff;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.search-input {
+    display: flex;
+    align-items: center;
+    width: 280px;
+    margin-left: 15px;
+    margin-right: 10px;
+    background: transparent;
+    border: 0.2px solid #858585;
+    border-radius: 6px;
+    height: 28px;
+    color: #ffffffb3;
+}
+
+.ant-dropdown-menu-item {
+    width: 180px;
+}
+  
+.ant-dropdown-menu-item:hover {
+    background-color: #0366d6;
+}
+
+.plus {
+    margin-right: 15px;
+    color: #ffff; 
+    font-size: 12px;
+}
+
+#bell {
+    color: #ffff;
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.ant-menu-horizontal .ant-menu-item, .ant-menu-horizontal .ant-menu-submenu-title {
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected {
+    color: #858585;
+    border-bottom: 0;
+    text-decoration: none;
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu {
+    margin: 0 10px;
+}
+
+.ant-menu-horizontal {
+    line-height: 20px;
+    border: 0;
+    border-bottom: 0;
+    box-shadow: none;
+}
+
+.tabl {
+    width: 80%; 
+    padding: 20px;   
+}
+
+$img-tag-size: 70px !default;
+.profile-img {
+  height: $img-tag-size;
+  width: $img-tag-size;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  // Makes `<img>` tags behave like `background-size: cover`. Not supported
+  // in IE, it is a progressive enhancement.
+  object-fit: cover;
+}
+
+#far-right {
+    display: flex;
+    flex-flow: row;
+}
+
+@media(max-width: 500px){
+    #far-right, #menu { // has nothing to do with politics
+        display: none;
+    }
+}
+
+nz-spin {
+    display: inline-block;
+    text-align: center;
+}
+
+.page-ctrl {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin-top: 50px;
+    //align-items: flex-end;
+}
+
+.count {
+    margin-left: 50px;
+}
