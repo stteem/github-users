@@ -97,8 +97,8 @@
                         [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
                     >
                     </pagination-controls>
-                    <p class="count" *ngIf="count > 1"><strong>{{count}}</strong> results</p>
-                    <p class="count" *ngIf="count <= 1"><strong>{{count}}</strong> result</p>
+                    <p class="count" *ngIf="count > 1"><strong>{{collection.length}}</strong> results</p>
+                    <p class="count" *ngIf="count <= 1"><strong>{{collection.length}}</strong> result</p>
                 </div>            
         </nz-content>
     </nz-layout>
