@@ -3,10 +3,9 @@ import { throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProcessHttpmsgService {
-
   constructor() { }
 
   public handleError(error: HttpErrorResponse | any) {
@@ -19,17 +18,16 @@ export class ProcessHttpmsgService {
       errMsg = error.message;
     }
     if (error.status == 404) {
-      errMsg = "Nothing was found";
+      errMsg = 'Nothing was found';
     }
     if (error.status == 500) {
       errMsg = `Something went wrong, an ${error.statusText}, please try again.`;
     }
     if (error.status == 0) {
-      errMsg = `No internet connection, connect to the internet and try again.`;
+      errMsg = 'No internet connection, connect to the internet and try again.';
     }
-  
-    errMsg = `Something went wrong, please try again.`; 
-    
+
+    errMsg = 'Something went wrong, please try again.';
 
     return throwError(errMsg);
   }

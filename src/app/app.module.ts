@@ -1,17 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
-import { NZ_ICONS } from 'ng-zorro-antd/icon';
+import { NZ_ICONS, NzIconModule } from 'ng-zorro-antd/icon';
 
-import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
@@ -26,24 +21,20 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
-
-
-
-
-
+import { environment } from '../environments/environment';
+import { HomeComponent } from './home/home.component';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
 };
-const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesignIcons[key])
-
-
-
+const icons: IconDefinition[] = Object.keys(antDesignIcons).map((key) => antDesignIcons[key]);
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,12 +57,12 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    })
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
   ],
   providers: [
-    { provide: NZ_ICONS, useValue: icons }
+    { provide: NZ_ICONS, useValue: icons },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

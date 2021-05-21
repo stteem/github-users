@@ -4,7 +4,7 @@
             <i nz-icon nzType="github" id="github-icon" nzTheme="outline"></i>
             
             <nz-input-group  class="search-input" [nzSuffix]="suffixIconSearch">
-                <input class="search-input" placeholder="Search or jump to..." nz-input [(ngModel)]="inputValue" (ngModelChange)="onChange($event)" [nzAutocomplete]="auto" />
+                <input class="search-input" id="sinput" placeholder="Search or jump to..." nz-input [(ngModel)]="inputValue" (ngModelChange)="onChange($event)" [nzAutocomplete]="auto" />
                 <nz-autocomplete [nzDataSource]="filteredOptions" #auto></nz-autocomplete>
             </nz-input-group >
             <ng-template #suffixIconSearch>
